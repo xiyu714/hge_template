@@ -13,8 +13,10 @@ include_directories(./include)
 link_directories(./lib)
 link_libraries(hge)
 
-# copy all files in dlls to binary_dir
+# copy all files in dlls to binary_dir/bin
 file(GLOB DLLS "dlls/*.dll")
-FILE(COPY ${DLLS} DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY ${DLLS} DESTINATION "${CMAKE_BINARY_DIR}/bin")
+# output binanry file in bin directory
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(${Project_name} main.cpp)
