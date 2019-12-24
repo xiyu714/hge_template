@@ -16,6 +16,8 @@ link_libraries(hge)
 # copy all files in dlls to binary_dir/bin
 file(GLOB DLLS "dlls/*.dll")
 FILE(COPY ${DLLS} DESTINATION "${CMAKE_BINARY_DIR}/bin")
+# copy src directory to binary_dir/bin
+FILE(COPY src DESTINATION "${CMAKE_BINARY_DIR}/bin")
 # output binanry file in bin directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
