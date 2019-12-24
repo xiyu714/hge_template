@@ -19,7 +19,8 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     # using Visual Studio C++
     SET(CMAKE_EXE_LINKER_FLAGS /NODEFAULTLIB:LIBC;)
     link_directories(./lib/vc)
-    link_libraries(hge hgehelp)
+    # VS2015 need legacy_stdio_definitions ; ref:https://stackoverflow.com/questions/32418766/c-unresolved-external-symbol-sprintf-and-sscanf-in-visual-studio-2015
+    link_libraries(hge hgehelp legacy_stdio_definitions)
 else()
     link_directories(./lib/gcc)
     link_libraries(hge)
